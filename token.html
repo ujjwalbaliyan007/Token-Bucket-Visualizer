@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Token Bucket Visualizer</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+  <script src="class.js"></script>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg, #dfefff, #a8c5e2);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+    }
+    canvas {
+      border: 2px solid #333;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+    }
+    .controls {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      background: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
+    }
+    .controls label {
+      font-size: 14px;
+      font-weight: bold;
+      margin-right: 5px;
+    }
+    .controls input {
+      padding: 5px;
+      width: 60px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      text-align: center;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <label for="rate">Rate:</label>
+    <input id="rate" type="number" value="5" min="1" max="20">
+    
+    <label for="capacity">Capacity:</label>
+    <input id="capacity" type="number" value="5" min="1" max="20">
+
+    <button onclick="updateSettings()">Update</button>
+    <button onclick="hitToken()">Hit</button>
+  </div>
+</body>
+</html>
